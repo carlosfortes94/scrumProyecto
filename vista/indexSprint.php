@@ -23,6 +23,6 @@
             <div id="por_terminar"><h1>Por terminar</h1></div>
         </div>
         
-        <button>Volver</button>
+        <button href="index.php">Volver</button>
     </body>
 </html>
