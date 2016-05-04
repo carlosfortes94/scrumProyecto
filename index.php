@@ -10,7 +10,7 @@
             }
             #contenido{
                 display: inline;
-                margin-right: 290px;
+                margin: 100px;
             }
             body > h1{
                 font-family: fantasy;
