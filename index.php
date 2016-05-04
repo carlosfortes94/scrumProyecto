@@ -9,7 +9,8 @@
                 background-color: powderblue;
             }
             #contenido{
-                display: flex;
+                display: inline;
+                margin-right: 290px;
             }
             body > h1{
                 font-family: fantasy;
@@ -123,11 +124,15 @@
                
             }
 
+            #titulo{
+                text-align: center;
+            }
+
         </style>
     </head>
     <body>
         <div class="ventana" id="ventanaHistoria">
-            <h1 id="titulo_historia">Añadir nueva historia de usuario a </h1>
+            <h1 id="titulo_historia">Añadir nueva historia de usuario</h1>
             <ul>
             <li>
                 <span class="campo_requerido">* Indica campo requerido</span>
@@ -149,13 +154,27 @@
                 <input type="number" name="valor"></input>
             </li>
             </ul>
-            <button id="cancelar">Cancelar</button>
-            <button id="enviar">Enviar</button>
+            <button id="cancelar_historia">Cancelar</button>
+            <button id="enviar_historia">Enviar</button>
+        </div>
+
+
+
+        <div class="ventana" id="ventanaTarea">
+            <h1 id="titulo_tarea">Añadir nueva tarea</h1>
+            <ul>
+            <li>
+                <label for="message">Descripción:</label>
+                <textarea name="message" cols="40" rows="6" ></textarea>
+            </li>
+            </ul>
+            <button id="cancelar_tarea">Cancelar</button>
+            <button id="enviar_tarea">Enviar</button>    
         </div>
         
         <div class="fadebox" id="fadebox"></div>
-            
-        <h1>Sprint <?php ?></h1>
+
+        <h1 id="titulo">SCRUM</h1>
         
         <div id="contenido">
         <div id="backlog">
@@ -178,7 +197,7 @@
 
          <div id="contenido">
         <div id="backlog">
-            <h1>Sprint back</h1>
+            <h1>Sprint backlog</h1>
             <div id="sprintbacklog">
 
             </div>
@@ -187,24 +206,47 @@
 
 
         <script type="text/javascript">
+
+        //----------------------------Historias------------------------------
+
             var nueva_historia = document.getElementById("nueva_historia");
-            var cancelar = document.getElementById("cancelar");
+            var cancelar = document.getElementById("cancelar_historia");
             var titulo = document.getElementById("titulo_historia");
-   
-            titulo.innerHTML = "Añadir nueva historia de usuario a " + this.id;
             
             function ventanaHistoria(){
                 var ventana = document.getElementById("ventanaHistoria").style.display= 'block'; 
                 var fondo = document.getElementById("fadebox").style.display = 'block';
             }
             
-             function ocultar(){
+             function ocultarHistoria(){
                 document.getElementById("ventanaHistoria").style.display = 'none';
                 document.getElementById("fadebox").style.display = 'none';
              }
             
             nueva_historia.addEventListener("click", ventanaHistoria);
-            cancelar.addEventListener("click", ocultar);
+            cancelar_historia.addEventListener("click", ocultarHistoria);
+
+            //----------------------------SPRINT--------------------------
+            
+            var nueva_tarea = document.getElementById("nueva_tarea");
+            var cancelar_tarea = document.getElementById("cancelar_tarea");
+            var titulo = document.getElementById("titulo_tarea");
+   
+            
+            function ventanaTarea(){
+                var ventana = document.getElementById("ventanaTarea").style.display= 'block'; 
+                var fondo = document.getElementById("fadebox").style.display = 'block';
+            }
+            
+             function ocultarTarea(){
+                document.getElementById("ventanaTarea").style.display = 'none';
+                document.getElementById("fadebox").style.display = 'none';
+             }
+            
+            nueva_tarea.addEventListener("click", ventanaTarea);
+            cancelar_tarea.addEventListener("click", ocultarTarea);
+            
+
         </script>
     </body>
 </html>
