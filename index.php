@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     
+    <!DOCTYPE html>
+<html>
+    
     <head>
         <title>Sprint</title>
         <meta charset="utf-8"/>
@@ -137,19 +140,19 @@
             </li>
             <li>
                 <label for="name">Nombre:</label>
-                <input type="text" name="name" placeholder="Nombre de historia" required="required" pattern="[a-zA-ZáéíóíñÁÉÍÓÚÑ\. ]+"/>
+                <input type="text" name="name" id="nombre_historia" placeholder="Nombre de historia" required="required" pattern="[a-zA-ZáéíóíñÁÉÍÓÚÑ\. ]+"/>
             </li>
             <li>
                 <label for="etiqueta">Etiqueta:</label>
-                <input name="etiqueta"  placeholder="Opcional"/>
+                <input name="etiqueta" id="etiqueta_historia" placeholder="Opcional"/>
             </li>
             <li>
                 <label for="descripcion">Descripcion:</label>
-                <textarea name="descripcion" cols="40" rows="6" ></textarea>
+                <textarea name="descripcion" id="descripcion_historia" cols="40" rows="6" ></textarea>
             </li>
             <li>
                 <label for="valor">Valor de negocio:</label>
-                <input type="number" name="valor"></input>
+                <input type="number" id="valor_historia" name="valor"></input>
             </li>
             </ul>
             <button id="cancelar_historia">Cancelar</button>
@@ -159,11 +162,11 @@
 
 
         <div class="ventana" id="ventanaTarea">
-            <h1 id="titulo_tarea">Añadir nueva tarea</h1>
+            <h1 id="titulo_tarea">Añadir nuevo sprint</h1>
             <ul>
             <li>
                 <label for="message">Descripción:</label>
-                <textarea name="message" cols="40" rows="6" ></textarea>
+                <textarea name="message" cols="40" rows="6" id="descripcion_tarea"></textarea>
             </li>
             </ul>
             <button id="cancelar_tarea">Cancelar</button>
@@ -188,7 +191,7 @@
         <div id="backlog">
             <h1>Sprint</h1>
             <div id="historia2">
-                 <button id='nueva_tarea'>Nueva tarea</button>
+                 <button id='nueva_tarea'>Nuevo sprint</button>
             </div>
         </div>
         </div>
@@ -205,7 +208,10 @@
         
         <script src="FuncionesBotones.js"></script>
         <script src="FuncionesBotones2.js"></script>
+        <script src="HistoriaHelper.js"></script>
+        <script src="SprintHelper.js"></script>
         <script>nuevaHistoria.init();</script>
         <script>nuevaTarea.init();</script>
+
     </body>
 </html>

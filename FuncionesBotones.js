@@ -30,7 +30,15 @@ ventana : {
      ocultarTarea: function (){
                 document.getElementById("ventanaTarea").style.display = 'none';
                 document.getElementById("fadebox").style.display = 'none';
-             }     
+             },
+
+    enviarTarea: function (){
+        var descripcion = document.getElementById("descripcion_tarea").value;
+        var divCreado = sprint12.getSprint.init(descripcion);
+        var nuevoDiv = document.getElementById("historia2");
+
+        nuevoDiv.appendChild(divCreado);
+    }     
 }
 }
 
