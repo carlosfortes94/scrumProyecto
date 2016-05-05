@@ -12,6 +12,7 @@
                 display: inline;
                 margin: 100px;
             }
+
             body > h1{
                 font-family: fantasy;
                 font-size: 3em;
@@ -64,7 +65,6 @@
             button#nueva_historia{
                 margin: 3px;
             }
-
             button#nueva_tarea{
                 margin: 3px;
             }
@@ -123,11 +123,9 @@
                 opacity: .3;
                
             }
-
             #titulo{
                 text-align: center;
             }
-
         </style>
     </head>
     <body>
@@ -204,50 +202,10 @@
         </div>
         </div>
 
-
-        <script type="text/javascript">
-
-        //----------------------------Historias------------------------------
-
-            var nueva_historia = document.getElementById("nueva_historia");
-            var cancelar = document.getElementById("cancelar_historia");
-            var titulo = document.getElementById("titulo_historia");
-            
-            function ventanaHistoria(){
-                var ventana = document.getElementById("ventanaHistoria").style.display= 'block'; 
-                var fondo = document.getElementById("fadebox").style.display = 'block';
-            }
-            
-             function ocultarHistoria(){
-                document.getElementById("ventanaHistoria").style.display = 'none';
-                document.getElementById("fadebox").style.display = 'none';
-             }
-            
-            nueva_historia.addEventListener("click", ventanaHistoria);
-            cancelar_historia.addEventListener("click", ocultarHistoria);
-
-            //----------------------------SPRINT--------------------------
-            
-            var nueva_tarea = document.getElementById("nueva_tarea");
-            var cancelar_tarea = document.getElementById("cancelar_tarea");
-            var titulo = document.getElementById("titulo_tarea");
-   
-            
-            function ventanaTarea(){
-                var ventana = document.getElementById("ventanaTarea").style.display= 'block'; 
-                var fondo = document.getElementById("fadebox").style.display = 'block';
-            }
-            
-             function ocultarTarea(){
-                document.getElementById("ventanaTarea").style.display = 'none';
-                document.getElementById("fadebox").style.display = 'none';
-             }
-            
-            nueva_tarea.addEventListener("click", ventanaTarea);
-            cancelar_tarea.addEventListener("click", ocultarTarea);
-            
-
-        </script>
+        
+        <script src="FuncionesBotones.js"></script>
+        <script src="FuncionesBotones2.js"></script>
+        <script>nuevaHistoria.init();</script>
+        <script>nuevaTarea.init();</script>
     </body>
 </html>
-
