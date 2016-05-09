@@ -45,7 +45,6 @@ var nuevaTarea = {
                         var titulo_nuevaTarea = document.getElementById("titulo_tarea");
                         titulo_nuevaTarea.innerHTML = "Añadir tarea a ";//aqui va la llamada al id de la historia
 		    },
-
 		    limpiarFields: function(){
 			document.getElementById("nombre_tarea").value = "";
 			document.getElementById("descripcion_tarea").value = "";
