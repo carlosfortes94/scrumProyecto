@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
     
-    <!DOCTYPE html>
-<html>
-    
     <head>
         <title>Sprint</title>
         <meta charset="utf-8"/>
@@ -68,7 +65,7 @@
             button#nueva_historia{
                 margin: 3px;
             }
-            button#nueva_tarea{
+            button#nuevo_sprint{
                 margin: 3px;
             }
             
@@ -161,16 +158,16 @@
 
 
 
-        <div class="ventana" id="ventanaTarea">
-            <h1 id="titulo_tarea">Añadir nuevo sprint</h1>
+        <div class="ventana" id="ventanaSprint">
+            <h1 id="titulo_sprint">Añadir nuevo sprint</h1>
             <ul>
             <li>
                 <label for="message">Descripción:</label>
-                <textarea name="message" cols="40" rows="6" id="descripcion_tarea"></textarea>
+                <textarea name="message" cols="40" rows="6" id="descripcion_sprint"></textarea>
             </li>
             </ul>
-            <button id="cancelar_tarea">Cancelar</button>
-            <button id="enviar_tarea">Enviar</button>    
+            <button id="cancelar_sprint">Cancelar</button>
+            <button id="enviar_sprint">Enviar</button>    
         </div>
         
         <div class="fadebox" id="fadebox"></div>
@@ -191,7 +188,7 @@
         <div id="backlog">
             <h1>Sprint</h1>
             <div id="historia2">
-                 <button id='nueva_tarea'>Nuevo sprint</button>
+                 <button id='nuevo_sprint'>Nuevo sprint</button>
             </div>
         </div>
         </div>
@@ -211,7 +208,7 @@
         <script src="HistoriaHelper.js"></script>
         <script src="SprintHelper.js"></script>
         <script>nuevaHistoria.init();</script>
-        <script>nuevaTarea.init();</script>
+        <script>nuevoSprint.init();</script>
 
     </body>
 </html>

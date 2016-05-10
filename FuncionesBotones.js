@@ -1,19 +1,19 @@
-var nuevaTarea = {
+var nuevoSprint = {
 	init: function(){
         
-	var nueva_tarea = document.getElementById("nueva_tarea");
-	nueva_tarea.addEventListener("click", function(){ 
-	nuevaTarea.ventana.ventanaTarea(); 
+	var nuevo_sprint = document.getElementById("nuevo_sprint");
+	nuevo_sprint.addEventListener("click", function(){ 
+	nuevoSprint.ventana.ventanaSprint(); 
 });
 
-    var cancelar_tarea = document.getElementById("cancelar_tarea");
-	cancelar_tarea.addEventListener("click", function(){ 
-	nuevaTarea.ventana.ocultarTarea(); 
+    var cancelar_sprint = document.getElementById("cancelar_sprint");
+	cancelar_sprint.addEventListener("click", function(){ 
+	nuevoSprint.ventana.ocultarSprint(); 
 });
     //por terminar    
-    var enviar_tarea = document.getElementById("enviar_tarea");
-	enviar_tarea.addEventListener("click", function(){ 
-	nuevaTarea.ventana.enviarTarea(); 
+    var enviar_sprint = document.getElementById("enviar_sprint");
+	enviar_sprint.addEventListener("click", function(){ 
+	nuevoSprint.ventana.enviarSprint(); 
         
 });    
     
@@ -22,18 +22,18 @@ var nuevaTarea = {
 ventana : {
 
 	
-     ventanaTarea: function (){
-                var ventana = document.getElementById("ventanaTarea").style.display= 'block'; 
+     ventanaSprint: function (){
+                var ventana = document.getElementById("ventanaSprint").style.display= 'block'; 
                 var fondo = document.getElementById("fadebox").style.display = 'block';
             },
             
-     ocultarTarea: function (){
-                document.getElementById("ventanaTarea").style.display = 'none';
+     ocultarSprint: function (){
+                document.getElementById("ventanaSprint").style.display = 'none';
                 document.getElementById("fadebox").style.display = 'none';
              },
 
-    enviarTarea: function (){
-        var descripcion = document.getElementById("descripcion_tarea").value;
+    enviarSprint: function (){
+        var descripcion = document.getElementById("descripcion_sprint").value;
         var divCreado = sprint12.getSprint.init(descripcion);
         var nuevoDiv = document.getElementById("historia2");
 
@@ -41,4 +41,5 @@ ventana : {
     }     
 }
 }
+
 
