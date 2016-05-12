@@ -201,12 +201,12 @@
             </div>
         </div>
         </div>
-
-        
-        <script src="FuncionesBotones.js"></script>
-        <script src="FuncionesBotones2.js"></script>
+        <script src="FuncionesSprints.js"></script>
+        <script src="FuncionesHistorias.js"></script>
         <script src="HistoriaHelper.js"></script>
         <script src="SprintHelper.js"></script>
+        <script src="logicaBacklog.js"></script>
+        <script src="servidorBacklog.js"></script>
         <script>nuevaHistoria.init();</script>
         <script>nuevoSprint.init();</script>
 
