@@ -52,14 +52,14 @@ ventana : {
         // EN SU LUGAR:
         // Enviar a la lógica de neogico la historia para que lo gestione: comprobar si ya existe, si no existe insertar en BD...
         //LogicaBacklog.enviarHistoria({nombre: nombre, etq: etiqueta..},FuncionesBotones2.ventana.anadirHistoria);
-        logicaBacklog.enviarHistoria({nom: nombre, etq: etiqueta, des: descripcion, val: valor});
+        logicaBacklog.enviarHistoria({nom: nombre, etq: etiqueta, des: descripcion, val: valor}, nuevaHistoria.ventana.anadirHistoria);
 
-    }//,
-    //anadirHistoria: function(historia){
-        
-    //}
+    },
+    anadirHistoria: function(historia){
+        console.log("[FuncionesHistoria.anadirHistoria]");
+        console.log(historia);    
+    }
     
  }
 };
-
 

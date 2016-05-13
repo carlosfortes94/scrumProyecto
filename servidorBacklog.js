@@ -1,22 +1,22 @@
 var servidorBacklog = {
 
-	solicitarAccionEnBD: function(objetoNombre){
-          this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php",objetoNombre);
+	solicitarAccionEnBD: function(objetoHistoria, callback){
+          this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php",objetoHistoria, callback);
     },
-    /* dudas D:
-    operacionEnBDTerminado: function(objetoNombre){
-           servidorBacklog.callback(objetoNombre);
+    
+    operacionEnBDTerminado: function(objetoHistoria){
+           servidorBacklog.callback(objetoHistoria);
     },       
-	*/
+	
     realizarConsultaHTTP: function(url, datos, callback){
 		this.consultaHTTP = false;
         this.callback = callback;
-        if (window.XMLHttpRequest) { // Mozilla, Safari,...
+        if (window.XMLHttpRequest) { 
              this.consultaHTTP = new XMLHttpRequest();
              if (this.consultaHTTP.overrideMimeType) {
                  this.consultaHTTP.overrideMimeType('text/xml');
              }
-         } else if (window.ActiveXObject) { // IE
+         } else if (window.ActiveXObject) { 
              try {
                  this.consultaHTTP = new ActiveXObject("Msxml2.XMLHTTP");
              } catch (e) {
@@ -29,12 +29,9 @@ var servidorBacklog = {
              alert('Falla :( No es posible crear una instancia XMLHTTP');
              return false;
          }
-         this.consultaHTTP.onreadystatechange = servidorBacklog.recogerRespuestaHTTP;
-         // CAMBIADO               
+         this.consultaHTTP.onreadystatechange = servidorBacklog.recogerRespuestaHTTP;              
          this.consultaHTTP.open('POST',url, true);
-         // CAMBIADO(todo)
-         this.consultaHTTP.setRequestHeader("Content-Type","application/json; charset=UTF-8");
-         // CAMBIADO                             
+         this.consultaHTTP.setRequestHeader("Content-Type","application/json; charset=UTF-8");                          
          this.consultaHTTP.send(JSON.stringify(datos));
     },    
 
@@ -42,10 +39,7 @@ var servidorBacklog = {
     recogerRespuestaHTTP: function(){
                     if (servidorBacklog.consultaHTTP.readyState == 4) {
                         if (servidorBacklog.consultaHTTP.status == 200) {
-                            console.log("[recogerRespuestaHTTP]");
                             servidorBacklog.operacionEnBDTerminado(JSON.parse(servidorBacklog.consultaHTTP.responseText));
-                            //funcionProcesarRespuesta(JSON.parse(ConexionServidor.consultaHTTP.responseText));
-                            //servidorBacklog.AnadirEnBDTerminado(JSON.parse(ConexionServidor.consultaHTTP.responseText));
                         } else {
                             alert('Hubo problemas con la petición.');
                         }
