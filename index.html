@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html>
-    
-    <head>
-        <title>Sprint</title>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../estilo/estilo.css"/>
+	<head>
+	<title>Sprint</title>
+	<meta charset="UTF-8">
+	<link href="estilo/estilo.css"/>
     </head>
     <body>
-      <div class="ventana" id="ventanaTarea">
+        <div class="ventana" id="ventanaTarea">
             <h1 id="titulo_tarea"></h1>
             <ul>
                 <li><label for="nombre_tarea">Nombre</label><input type="text" id="nombre_tarea"/></li>
                 <li><textarea id="descripcion_tarea" placeholder="Descripción"></textarea></li>
-                <!-- aquí va la lista de pruebas, pero ni idea de lo que es -->
+																<li><textarea id="lista_pruebas" placeholder="Lista de pruebas"></textarea></li>
                 <li><label for="coste_estimado">Coste</label><input type="number" id="coste_estimado"/></li>
                 <li><label for="prioridad">Prioridad</label><input type="number" id="prioridad"/></li>    
             </ul>
@@ -22,7 +20,7 @@
         
         <div class="fadebox" id="fadebox"></div>
             
-        <h1>Sprint <?php ?></h1>
+        <!--<h1>Sprint </h1>-->
         
         <div id="contenido">
         <div id="backlog">
@@ -31,8 +29,8 @@
                 <ul>
                     <li id="id">hola</li>
                     <li>hola caracola</li>
-                    <li>100</li>
                 </ul>  
+                <span class="coste">100</span>
                 <button id='nueva_tarea'>Nueva tarea</button>
             </div>
         </div>
@@ -46,10 +44,13 @@
         </div>
         <button>Volver</button>
         
-	<script src="tareaIn.js"></script>
         <script src="nuevaTarea.js"></script>
+        <script src="conexionServidor.js"></script>
+        <script src="logicaTarea.js"></script>
+	<script src="botones.js"></script>
         <script>
-            nuevaTarea.init();
+	//LLAMADA A FUNCION QUE CREE EL TITULO DEL SPRINT
+            botones.init();
         </script>
     </body>
 </html>

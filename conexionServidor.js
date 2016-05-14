@@ -1,15 +1,18 @@
 var conexionServidor = {
-    consultaHTTP: false,
-    callbackTareaBD: function(addTareaTerminada){
-        this.addTareaTerminada = addTareaTerminada;
+	consultaHTTP: false,
+	
+ operacionBDTerminado: function(tarea){
+        conexionServidor.callback(tarea);
     },
-    solicitarAddTareaBD: function(objetoDatos){
-        
-        this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", objetoDatos);
+	
+	solicitarAddTareaBD: function(tarea, callback){
+        this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", tarea, callback);
     }, 
-    realizarConsultaHTTP: function(url, datos){
+	
+	realizarConsultaHTTP: function(url, tarea, callback){
         this.consultaHTTP = false;
-        
+        this.callback = callback;
+		
         if (window.XMLHttpRequest){
             this.consultaHTTP = new XMLHttpRequest();
             if (this.consultaHTTP.overrideMimeType){
@@ -24,7 +27,20 @@ var conexionServidor = {
             alert('No es posible crear una instancia XMLHTTP');
             return false;
         }
-       
+		
+        this.consultaHTTP.onreadystatechange = conexionServidor.recepcionHTTP;
+        this.consultaHTTP.open('POST',url,true);
+								this.consultaHTTP.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+        this.consultaHTTP.send(JSON.stringify(tarea));
+    },
+	
+    recepcionHTTP: function(){
+        if (conexionServidor.consultaHTTP.readyState === 4){
+            if (conexionServidor.consultaHTTP.status === 200){
+                conexionServidor.operacionBDTerminado(JSON.parse(conexionServidor.consultaHTTP.responseText));
+            } else {
+                alert('Hubo problemas con la petición.');
+            }
+        }
     }
 };
-
