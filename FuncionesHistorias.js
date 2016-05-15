@@ -22,7 +22,7 @@ var nuevaHistoria = {
 ventana : {
     
 
-ventanaHistoria: function(){
+    ventanaHistoria: function(){
                 var ventana = document.getElementById("ventanaHistoria").style.display= 'block'; 
                 var fondo = document.getElementById("fadebox").style.display = 'block';
             },
@@ -31,6 +31,11 @@ ventanaHistoria: function(){
                 document.getElementById("ventanaHistoria").style.display = 'none';
                 document.getElementById("fadebox").style.display = 'none';
              },
+    /*        
+    mensajeError: function(){
+        alert("Ya existe en la base de datos");
+            },
+    */
     
     enviarHistoria: function(){
         var nombre = document.getElementById("nombre_historia").value;
@@ -40,13 +45,23 @@ ventanaHistoria: function(){
         
        
         
-       var divCreado = historia12.getHistoria.init(nombre,etiqueta,descripcion,valor);
+       //var divCreado = historia12.getHistoria.init(nombre,etiqueta,descripcion,valor);
+        //var cuadroRosa = document.getElementById("historia1");
         
-        var cuadroRosa = document.getElementById("historia1");
         
-        cuadroRosa.appendChild(divCreado);
+        
+        //-var objetoHistoria= {nom: nombre, etq: etiqueta, des: descripcion, val: valor};    
+        // EN SU LUGAR:
+        // Enviar a la lógica de neogico la historia para que lo gestione: comprobar si ya existe, si no existe insertar en BD...
+        //LogicaBacklog.enviarHistoria({nombre: nombre, etq: etiqueta..},FuncionesBotones2.ventana.anadirHistoria);
+        logicaBacklog.enviarHistoria({nom: nombre, etq: etiqueta, des: descripcion, val: valor}, nuevaHistoria.ventana.anadirHistoria);
+
+    },
+    anadirHistoria: function(historia){
+        console.log("[FuncionesHistoria.anadirHistoria]");
+        console.log(historia);    
     }
     
  }
-}
+};
 

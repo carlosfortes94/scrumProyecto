@@ -1,4 +1,4 @@
- var historia12= {
+ /*var historia12= {
         getHistoria: {
  
             init: function(nombre,etiqueta,descipcion,valor){
@@ -20,4 +20,4 @@
      
  }
  };
-              
+           */   
