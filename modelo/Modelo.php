@@ -21,22 +21,22 @@ class modelo {
     }
     
     public function insertarHistoria($ID,$nombre,$Descripcion, $ValorDeNegocio){
-        $sql = "INSERT INTO Historia VALUES ('"."sprint1"."','" . $ID ."','" . $nombre ."','" . $Descripcion ."','" . $ValorDeNegocio ."');";
+        $sql = "INSERT INTO historia VALUES ('"."sprint1"."','" . $ID ."','" . $nombre ."','" . $Descripcion ."','" . $ValorDeNegocio ."');";
         return $this->baseDatos->query($sql);
     }
     
     public function borrarHistoria($ID){
-        $sql = "DELETE * FROM Historia WHERE nombre = '" . $ID . "';";
+        $sql = "DELETE * FROM historia WHERE nombre = '" . $ID . "';";
         return $this->baseDatos->query($sql);
     }
     
-    public function actualizarHistoria($ID,$NuevoID,$NuevoNombre,$NuevaDescricion,$NuevoValor){
-        $sql = "UPDATE Historia SET ID = '".$nuevoID."', Nombre= '".$NuevoNombre."',Descripcion='".$NuevaDescricion."',Valor de negocio='".$NuevoValor."' WHERE ID = '".$ID."';";
+    public function actualizarHistoria($ID,$nuevoID,$NuevoNombre,$NuevaDescricion,$NuevoValor){
+        $sql = "UPDATE historia SET ID = '".$nuevoID."', Nombre= '".$NuevoNombre."',Descripcion='".$NuevaDescricion."',Valor de negocio='".$NuevoValor."' WHERE ID = '".$ID."';";
         return $this->baseDatos->query($sql);
     }
     
     public function leerHistorias(){
-        $sql = "SELECT * FROM Historia";
+        $sql = "SELECT * FROM historia";
         $resultado = $this->baseDatos->query($sql);
         $fila = $resultado->fetch_row();
         $Historias = [];

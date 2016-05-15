@@ -19,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] === "GET"){
     $modelo->conectarBD();
     $resultado = $modelo->insertarHistoria($consulta["etq"],$consulta["nom"],$consulta["des"],$consulta["val"]);
     
-    
     if ($resultado){
         echo $consultaJSON;
     } else {
