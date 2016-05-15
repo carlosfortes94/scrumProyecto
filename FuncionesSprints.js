@@ -33,13 +33,22 @@ ventana : {
              },
 
     enviarSprint: function (){
+        //falta implementarlo en el html.
+        var identificador = document.getElementById("id_sprint").value;
+        var nombre = document.getElementById("nombre_sprint").value;
         var descripcion = document.getElementById("descripcion_sprint").value;
         var divCreado = sprint12.getSprint.init(descripcion);
         var nuevoDiv = document.getElementById("historia2");
 
-        nuevoDiv.appendChild(divCreado);
+        logicaSprint.enviarSprint({id: identificador, nom: nombre, des: descripcion}, nuevoSprint.ventana.anadirSprint);
+
+        
+    },
+
+    anadirSprint : function (sprint){
+        console.log(sprint);
     }     
 }
-}
+};
 
 
