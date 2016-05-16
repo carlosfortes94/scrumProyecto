@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET"){
     //$vista = new scrumProyecto1\vista\Vista();
     
     $modelo->conectarBD();
-    $resultado = $modelo->insertarHistoria($consulta["etq"],$consulta["nom"],$consulta["des"],$consulta["val"]);
+    $resultado = $modelo->insertarHistoria($consulta["idsprint"],$consulta["etq"],$consulta["nom"],$consulta["des"],$consulta["val"]);
     
     if ($resultado){
         echo $consultaJSON;
