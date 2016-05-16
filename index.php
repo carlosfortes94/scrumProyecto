@@ -1,20 +1,26 @@
 <?php
 
+require __DIR__.'/vendor/autoload.php';
+
+error_reporting(E_ALL);
+
 if ($_SERVER["REQUEST_METHOD"] === "GET"){
+    
     //require __DIR__."/index.html";
-    require __DIR__."/Vista.php";
-    $vista = new proyectoScrum\Vista();
-    $vista->mostrarPagina("index.html");
+    //
+    //require __DIR__."/Vista.php";
+    $vista = new ScrumProyecto1\Vista();
+    //$vista->mostrarPagina("index.html");
 } else {
     $consultaJSON = file_get_contents('php://input');
     // $consulta es una Array
     $consulta = json_decode($consultaJSON,true);
     
     
-    require __DIR__."/Modelo.php";
-    require __DIR__."/Vista.php";
-    $modelo = new proyectoScrum\modelo\Modelo();
-    $vista = new proyectoScrum\vista\Vista();
+    //require __DIR__."modelo/Modelo.php";
+    //require __DIR__."/Vista.php";
+    $modelo = new scrumProyecto1\modelo\Modelo();
+    //$vista = new scrumProyecto1\vista\Vista();
     
     $modelo->conectarBD();
     $resultado = $modelo->insertarHistoria($consulta["etq"],$consulta["nom"],$consulta["des"],$consulta["val"]);
