@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html>
-    
-    <head>
-        <title>Sprint</title>
-        <meta charset="utf-8"/>
-								<link rel="stylesheet" type="text/css" href="estilo.css"/>
+	<head>
+	<title>Sprint</title>
+	<meta charset="UTF-8">
+	<link href="estilo/estilo.css"/>
     </head>
     <body>
-								<div class"ventana" id="eliminarTarea">
-											<p>¿Realmente desea eliminar esta tarea?</p>
-											<button id="si_eliminar">Sí</button><button id="no_eliminar">Cancelar</button>
-								</div>
         <div class="ventana" id="ventanaTarea">
             <h1 id="titulo_tarea"></h1>
             <ul>
@@ -22,7 +16,6 @@
             </ul>
             <button id="cancelar">Cancelar</button>
             <button id="enviar">Enviar</button>
-
         </div>
         
         <div class="fadebox" id="fadebox"></div>
@@ -34,7 +27,7 @@
             <h1>Backlog</h1>
             <div id="historia1">
                 <ul>
-                    <li id="id_historia">hola</li>
+                    <li id="id">hola</li>
                     <li>hola caracola</li>
                 </ul>  
                 <span class="coste">100</span>
@@ -54,9 +47,9 @@
         <script src="nuevaTarea.js"></script>
         <script src="conexionServidor.js"></script>
         <script src="logicaTarea.js"></script>
-								<script src="botones.js"></script>
+	<script src="botones.js"></script>
         <script>
-									//LLAMADA A FUNCION QUE CREE EL TITULO DEL SPRINT
+	//LLAMADA A FUNCION QUE CREE EL TITULO DEL SPRINT
             botones.init();
         </script>
     </body>
