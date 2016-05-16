@@ -40,7 +40,7 @@ ventana : {
     enviarHistoria: function(){
         var nombre = document.getElementById("nombre_historia").value;
         var etiqueta = document.getElementById("etiqueta_historia").value;
-        var idsprint = document.getElementById("id_spr").value;
+        var idsprint = document.getElementById("id_sprint").value;
         var descripcion = document.getElementById("descripcion_historia").value;
         var valor = document.getElementById("valor_historia").value;
 
@@ -67,7 +67,7 @@ ventana : {
             var historiaCreada = document.createElement("div");
             historiaCreada.innerHTML = datos;
             var cuadro = document.getElementById("historia1");
-            cuadroRosa.appendChild(historiaCreada);
+            cuadro.appendChild(historiaCreada);
             
             
         }else{
