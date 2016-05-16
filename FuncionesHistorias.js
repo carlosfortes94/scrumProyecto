@@ -40,26 +40,41 @@ ventana : {
     enviarHistoria: function(){
         var nombre = document.getElementById("nombre_historia").value;
         var etiqueta = document.getElementById("etiqueta_historia").value;
+        var idsprint = document.getElementById("id_spr").value;
         var descripcion = document.getElementById("descripcion_historia").value;
         var valor = document.getElementById("valor_historia").value;
-        
-       
-        
-       var divCreado = historia12.getHistoria.init(nombre,etiqueta,descripcion,valor);
-        
-        var cuadroRosa = document.getElementById("historia1");
-        //-var objetoHistoria= {nom: nombre, etq: etiqueta, des: descripcion, val: valor};    
-        // EN SU LUGAR:
-        // Enviar a la lógica de neogico la historia para que lo gestione: comprobar si ya existe, si no existe insertar en BD...
-        //LogicaBacklog.enviarHistoria({nombre: nombre, etq: etiqueta..},FuncionesBotones2.ventana.anadirHistoria);
-        logicaBacklog.enviarHistoria({nom: nombre, etq: etiqueta, des: descripcion, val: valor}, nuevaHistoria.ventana.anadirHistoria);
+
+        logicaBacklog.enviarHistoria({nom: nombre, etq: etiqueta, id: idsprint, des: descripcion, val: valor}, nuevaHistoria.ventana.anadirHistoria);
 
     },
     anadirHistoria: function(historia){
-        console.log("[FuncionesHistoria.anadirHistoria]");
-        console.log(historia);    
+        if (!historia.hasOwnProperty('error')){
+            var nombre = historia.nom;
+            var etiqueta = historia.etq;
+            var idsprint = historia.id;
+            var descripcion = historia.des;
+            var valor = historia.val;
+            var datos = "";
+            
+            datos = " <ul>" +
+                               " <li class='etiqueta_historia'>" + etiqueta + "</li>" +
+                               " <li class='nombre_historia'>" + nombre + "</li>" +
+                               " <li>"+ idsprint +"</li>"+
+                               " </ul>" +
+                               " <span class='valor_historia' title='Valor de negocio'>" + valor + "</span>" +
+                               " <button class='btn_detalles_historia' >Mostrar detalles</button><button class='btn_borrar_historia'>Borrar historia</button>";
+            
+            var historiaCreada = document.createElement("div");
+            historiaCreada.innerHTML = datos;
+            var cuadro = document.getElementById("historia1");
+            cuadroRosa.appendChild(historiaCreada);
+            
+            
+        }else{
+            alert("No se ha podido insertar");
+        }
+            
     }
     
  }
 };
-

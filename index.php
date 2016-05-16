@@ -144,6 +144,10 @@
                 <input name="etiqueta" id="etiqueta_historia" placeholder="Opcional"/>
             </li>
             <li>
+                <label for="idsprint">ID del sprint:</label>
+                <input name="idsprint" id="id_sprint"/>
+            </li>
+            <li>
                 <label for="descripcion">Descripcion:</label>
                 <textarea name="descripcion" id="descripcion_historia" cols="40" rows="6" ></textarea>
             </li>
@@ -203,12 +207,10 @@
         </div>
         <script src="FuncionesSprints.js"></script>
         <script src="FuncionesHistorias.js"></script>
-        <script src="HistoriaHelper.js"></script>
         <script src="SprintHelper.js"></script>
         <script src="logicaBacklog.js"></script>
         <script src="servidorBacklog.js"></script>
         <script>nuevaHistoria.init();</script>
         <script>nuevoSprint.init();</script>
-
     </body>
 </html>
