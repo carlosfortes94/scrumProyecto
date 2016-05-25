@@ -1,5 +1,22 @@
 var logicaBacklog = {
 	historias: [],
+    
+    intentarCargarHistoria: function(){
+        
+        servidorBacklog.solicitarAccionEnBD({r:"historias"} ,logicaBacklog.cargarArray);
+    },
+    
+    cargarArray: function(historias){
+        
+        if (historias.hasOwnProperty("r")){
+            for(var historia in historias.r){
+                logicaBacklog.historias.push(historias.r[historia]);
+            }
+        }
+        
+        nuevaHistoria.ventana.iniciarHistorias(historias);
+             
+    },
 	enviarHistoria: function(historia, callback){
 		this.callback = callback;
 		for (var i=0; i<this.historias.length; i++){
@@ -12,25 +29,19 @@ var logicaBacklog = {
 			
 		}
 		servidorBacklog.solicitarAccionEnBD(historia, logicaBacklog.enviarHistoriaTerminado);
-		// Comprobar que no existe en el array
-		// Si existe -> error 
-		// Devolver {"error": "...."};
-		// Si no existe,
-		// Intentar insertar en BD.
+		
 	},
+    
+    borrarHistoria: function(historia, callback){
+        this.callback = callback;
+        servidorBacklog.solicitarAccionEnBD(historia, logicaBacklog.enviarHistoriaTerminado);
+    },
+    
 	enviarHistoriaTerminado: function(historia){
-
-		if (typeof(historia.error) == "undefined"){
-			logicaBacklog.historias.push(historia);
-		}
+		
 		logicaBacklog.callback(historia);
-		// historia : {error: "..."} // {id: .., nombre: ..., }
-		// si es un error se lo paso a la vista llamando a la vista mediante un callback
-		// Si es correcta la historia: LogicaBacklog.historias.push(historia)
-		// LogicaBacklog.callback(historia)
+		
 	}
-
-
+    
 };
-
 

@@ -10,12 +10,13 @@ var nuevaHistoria = {
 	cancelar_historia.addEventListener("click", function(){ 
 	nuevaHistoria.ventana.ocultarHistoria(); 
 });
-    //por terminar    
+    
     var enviar_historia = document.getElementById("enviar_historia");
 	enviar_historia.addEventListener("click", function(){ 
 	nuevaHistoria.ventana.enviarHistoria(); 
+    });
         
-});    
+    
     
 },
 
@@ -27,15 +28,22 @@ ventana : {
                 var fondo = document.getElementById("fadebox").style.display = 'block';
             },
 
-     ocultarHistoria: function (){
+    ocultarHistoria: function (){
                 document.getElementById("ventanaHistoria").style.display = 'none';
                 document.getElementById("fadebox").style.display = 'none';
              },
-    /*        
-    mensajeError: function(){
-        alert("Ya existe en la base de datos");
-            },
-    */
+    
+    enviarBorrarHistoria: function (){
+        console.log("*_*");
+        var nombre = document.getElementById("nombre_historia").value;
+        var etiqueta = document.getElementById("etiqueta_historia").value;
+        var idsprint = document.getElementById("id_sprint").value;
+        var descripcion = document.getElementById("descripcion_historia").value;
+        var valor = document.getElementById("valor_historia").value;
+        
+        logicaBacklog.borrarHistoria({nom: nombre, etq: etiqueta, id: idsprint, des: descripcion, val: valor,
+                                     tipo: "historia", b: "borrar"}, nuevaHistoria.ventana.borrarHistoria);
+    },
     
     enviarHistoria: function(){
         var nombre = document.getElementById("nombre_historia").value;
@@ -44,7 +52,7 @@ ventana : {
         var descripcion = document.getElementById("descripcion_historia").value;
         var valor = document.getElementById("valor_historia").value;
 
-        logicaBacklog.enviarHistoria({nom: nombre, etq: etiqueta, id: idsprint, des: descripcion, val: valor}, nuevaHistoria.ventana.anadirHistoria);
+        logicaBacklog.enviarHistoria({nom: nombre, etq: etiqueta, id: idsprint, des: descripcion, val: valor, tipo: "historia", a: "añadir"}, nuevaHistoria.ventana.anadirHistoria);
 
     },
     anadirHistoria: function(historia){
@@ -69,12 +77,45 @@ ventana : {
             var cuadro = document.getElementById("historia1");
             cuadro.appendChild(historiaCreada);
             
+            var btn_borrar_historia = document.querySelectorAll(".btn_borrar_historia");
+            
+            for (var i=0; i<btn_borrar_historia.length; i++){
+            btn_borrar_historia[i].addEventListener("click", function(){
+            nuevaHistoria.ventana.enviarBorrarHistoria();   
+        
+        });  
+    }
             
         }else{
             alert("No se ha podido insertar");
         }
             
+    },
+    
+    borrarHistoria: function(historia){
+        //borrar las historias visualmente.
+        //var cuadro = document.getElementById(historia.id);//"historia1");
+          console.log(historia);
+          var etiquetasDOM = document.querySelectorAll(".etiqueta_historia");
+          for (var i=0; i<etiquetasDOM.length ;i++){
+               if (historia.etq == etiquetasDOM[i].textContent){
+                  var historiaDOM = etiquetasDOM[i].parentNode.parentNode;
+                  var backlogDOM = document.getElementById("historia1");
+                  backlogDOM.removeChild(historiaDOM);
+              }
+          }
+   
+    },
+    
+    iniciarHistorias: function(arrayHistorias){
+    var cuadro = document.getElementById("historia1");
+    console.log(arrayHistorias);  
+    for(var historia in arrayHistorias.r){
+                //cuadro.appendChild(arrayHistorias.r[historia]);
+                console.log(arrayHistorias.r[historia]);
+    }
+        
     }
     
- }
+}
 };
