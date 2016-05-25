@@ -25,11 +25,8 @@ var nuevaTarea = {
 										document.getElementById("descripcion_tarea").value = "";
 										document.getElementById("coste_estimado").value = "";
 										document.getElementById("prioridad").value = "";
-		    },
-		//ESTO ES PARA MODIFICAR
-      mostrarDatos: function(id_tarea){
-          var tarea = document.getElementById(id_tarea);  
-     }
+		    }
+     
 	},
 	
 	insertarNuevaTarea: {
@@ -40,12 +37,13 @@ var nuevaTarea = {
 		
 						getDatosTarea: function(){
 											var tarea = new Object();
+											tarea.id_historia = document.getElementById("id_historia").value;
 											tarea.nombre = document.getElementById("nombre_tarea").value;
 											tarea.descripcion = document.getElementById("descripcion_tarea").value;
 											tarea.pruebas = document.getElementById("lista_pruebas");
 											tarea.coste = document.getElementById("coste_estimado").value;
 											tarea.prioridad = document.getElementById("prioridad").value;
-
+											tarea.color = document.getElementById().style.backgroundColor;
 											return tarea;
 						},
 		
@@ -81,21 +79,24 @@ var nuevaTarea = {
 	creacionDivTarea: {
 			tareaCreate: function(tarea){
                             var div = document.createElement("div");
-
+				
                             var tareaBox = "<ul>" + 
-                                            "<li>" + tarea.nombre + "</li>" + 
+                                            "<li class='nombre_tarea'>" + tarea.nombre + "</li>" + 
                                             "<li>" + tarea.prioridad + "</li>" +
                                            "</ul>" + 
                                           "<span>" + tarea.coste + "</span>" + 
-																																										"<a href='#' id='modificar_tarea'><img src='eliminar.png'/></a>;
-		
-
-		div.setAttribute("id","tarea");
+																																										"<input type='image' src='editar.png' id='modificar_tarea' onclick='modificarTarea.init(this.parentNode.querySelector(\".nombre_tarea\").textContent'/>
+																																										"<input type='image' src='eliminar.png' id='eliminar_tarea' onclick='modificarTarea.init(this.parentNode.querySelector(\".nombre_tarea\").textContent'/>";
+		var id_tarea =tarea.nombre;
+				
+		div.setAttribute("class", tarea.id_historia);
+		div.setAttribute(id_tarea); //PREGUNTAR
 		div.setAttribute("draggable","true");
+		div.style.backgroundColor = tarea.color;
 		div.innerHTML = tareaBox;
                 
-                var tareaBox1 = document.getElementById("por_hacer");
-                tareaBox1.appendChild(div);
+                var por_hacer = document.getElementById("por_hacer");
+                por_hacer.appendChild(div);
 		
 	}
 }

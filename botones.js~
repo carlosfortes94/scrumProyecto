@@ -1,5 +1,5 @@
 var botones = {
-	init: function(){
+	init: function(idTarea){
 		var btn_nueva_tarea = document.getElementById("nueva_tarea");
 		btn_nueva_tarea.addEventListener("click", function(){
 			nuevaTarea.ventana.mostrar();
@@ -17,14 +17,14 @@ var botones = {
 			nuevaTarea.ventana.ocultar();
 		});
 		
-		var btn_modificar_tarea = document.getElementById("modificar_tarea");
+	/*var btn_modificar_tarea = document.getElementById("modificar_tarea");
 		btn_modificar_tarea.addEventListener("click", function(){
-			modificarTarea.init();
+			modificarTarea.init(idTarea);
 		});
-		
+		*/
 		var btn_eliminar_tarea = document.getElementById("eliminar_tarea");
 		btn_eliminar_tarea.addEventListener("click", function(){
-			eliminarTarea.ventana.mostrarVentanaEliminar();
+			eliminarTarea.ventana.mostrarVentanaEliminar(idTarea);
 		});
 		
 		var btn_si_eliminar =  document.getElementById("si_eliminar");
@@ -34,7 +34,7 @@ var botones = {
 		
 		var btn_no_eliminar = document.getElementById("no_eliminar");
 		btn_no_eliminar.addEventListener("click", function(){
-			eliminarTarea.ventana.ocultarVentanaEliminacion
+			eliminarTarea.ventana.ocultarVentanaEliminacion();
 		});
 	}
 };
