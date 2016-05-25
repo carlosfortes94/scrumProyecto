@@ -1,63 +1,75 @@
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <title>Sprint</title>
-        <meta charset="utf-8"/>
-								<link rel="stylesheet" type="text/css" href="estilo.css"/>
-    </head>
-    <body>
-								<div class"ventana" id="eliminarTarea">
-											<p>¿Realmente desea eliminar esta tarea?</p>
-											<button id="si_eliminar">Sí</button><button id="no_eliminar">Cancelar</button>
-								</div>
-        <div class="ventana" id="ventanaTarea">
-            <h1 id="titulo_tarea"></h1>
-            <ul>
-                <li><label for="nombre_tarea">Nombre</label><input type="text" id="nombre_tarea"/></li>
-                <li><textarea id="descripcion_tarea" placeholder="Descripción"></textarea></li>
-																<li><textarea id="lista_pruebas" placeholder="Lista de pruebas"></textarea></li>
-                <li><label for="coste_estimado">Coste</label><input type="number" id="coste_estimado"/></li>
-                <li><label for="prioridad">Prioridad</label><input type="number" id="prioridad"/></li>    
-            </ul>
-            <button id="cancelar">Cancelar</button>
-            <button id="enviar">Enviar</button>
+		<head>
+				<title>Sprint</title>
+				<meta charset="utf-8"/>
+				<link rel="stylesheet" type="text/css" href="estilo.css"/>
+		</head>
+		<body>
+				<div class="ventana" id="eliminarTarea">
+						<p>¿Realmente desea eliminar esta tarea?</p>
+						<button id="no_eliminar">Cancelar</button>
+						<button id="si_eliminar">Sí</button>
+				</div>
+				<div class="ventana" id="ventanaTarea">
+						<h1 id="titulo_tarea"></h1>
+						<ul>
+								<li><label for="nombre_tarea">Nombre</label><input type="text" id="nombre_tarea"/></li>
+								<li><textarea id="descripcion_tarea" placeholder="Descripción"></textarea></li>
+								<li><textarea id="lista_pruebas" placeholder="Lista de pruebas"></textarea></li>
+								<li><label for="coste_estimado">Coste</label><input type="number" id="coste_estimado"/></li>
+								<li><label for="prioridad">Prioridad</label><input type="number" id="prioridad"/></li>    
+						</ul>
+						<button id="cancelar">Cancelar</button>
+						<button id="enviar" onclick="nuevaTarea.insertarNuevaTarea.init(this.parentNode.style.backgroundColor)">Enviar</button>
+				</div>
 
-        </div>
-        
-        <div class="fadebox" id="fadebox"></div>
-            
-        <!--<h1>Sprint </h1>-->
-        
-        <div id="contenido">
-        <div id="backlog">
-            <h1>Backlog</h1>
-            <div id="historia1">
-                <ul>
-                    <li id="id_historia">hola</li>
-                    <li>hola caracola</li>
-                </ul>  
-                <span class="coste">100</span>
-                <button id='nueva_tarea'>Nueva tarea</button>
-            </div>
-        </div>
-        <div id="kanban">
-            
-            <div id="por_hacer"><h1>Por hacer</h1></div>
-            <div id="en_proceso"><h1>En proceso</h1></div>
-            <div id="terminado"><h1>Terminado</h1></div>
-            <div id="por_terminar"><h1>Por terminar</h1></div>
-        </div>
-        </div>
-        <button>Volver</button>
-        
-        <script src="nuevaTarea.js"></script>
-        <script src="conexionServidor.js"></script>
-        <script src="logicaTarea.js"></script>
-								<script src="botones.js"></script>
-        <script>
-									//LLAMADA A FUNCION QUE CREE EL TITULO DEL SPRINT
-            botones.init();
-        </script>
-    </body>
-</html>
+				<div class="fadebox" id="fadebox"></div>
+
+				<h1>Sprint </h1>
+
+				<div id="contenido">
+						<div id="backlog">
+								<h1>Backlog</h1>
+								<div id="historia1">
+										<ul>
+												<li id="id_historia">hola</li>
+												<li>hola caracola</li>
+										</ul>  
+										<span class="coste">100</span>
+										<button id='nueva_tarea'>Nueva tarea</button>
+								</div>
+						</div>
+						<div id="kanban">
+								<div class="dropzone" id="por_hacer"><h1>Por hacer</h1>
+										<div class="tarea" id="tarea1" draggable="true">
+												<ul>
+														<li class='nombre_tarea'>Nombre</li>
+														<li>Prioridad</li>
+												</ul>
+												<span>Coste</span> 
+												<input type='image' src='editar.png' id='modificar_tarea' onclick='modificarTarea.init(this.parentNode.querySelector(".nombre_tarea").textContent)'/>
+												<input type='image' src='eliminar.png' id='eliminar_tarea' onclick='eliminarTarea.init(this.parentNode.querySelector(".nombre_tarea").textContent)'/>
+										</div>
+								</div>
+								<div class="dropzone" id="en_proceso"><h1>En proceso</h1></div>
+								<div class="dropzone" id="terminado"><h1>Terminado</h1></div>
+								<div class="dropzone" id="por_terminar"><h1>Por terminar</h1></div>
+						</div>
+				</div>
+				<button>Volver</button>
+
+				<script src="nuevaTarea.js"></script>
+				<script src="conexionServidor.js"></script>
+				<script src="logicaTarea.js"></script>
+				<script src="botones.js"></script>
+				<script src="eliminarTarea.js"></script>
+				<script src="modificarTarea.js"></script>
+				<script src="arrastre.js"></script>
+				<script>
+						//LLAMADA A FUNCION QUE CREE EL TITULO DEL SPRINT
+						botones.init();
+						arrastre.init();						
+				</script>
+		</body>
+	</html>

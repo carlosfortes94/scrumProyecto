@@ -10,19 +10,31 @@ var logicaTarea = {
                 return;
             }
         }
-        //preparando paso 4
-
         //ejecutar paso 3
         conexionServidor.solicitarAddTareaBD(tarea, logicaTarea.addTareaTerminada);
 	}, 
 		
 		addTareaTerminada: function(tarea){
 				if (typeof(tarea.error) == "undefined"){
-									logicaTarea.nombres_tarea.push(tarea);
+						logicaTarea.nombres_tarea.push(tarea);
+						logicaTarea.creacionDivTarea(tarea);
 				} else {
-					
+						
 				}
 			
-			logicaTarea.creacionDivTarea(tarea);
-				}
+
+		},
+	
+	recogerDatosBD: function(callback){
+		this.callback = callback;
+	
+		conexionServidor.solicitarDatosBD(modificarTarea.mostrarVentanaModificacion);
+		},
+	
+	buscarIdEnBD: function(id_tarea, callback){
+		this.callback = callback;
+		
+		conexionServidor.solicitarEliminacionBD(id_tarea, eliminarTarea.borrarTarea);
+	}
+
 };
