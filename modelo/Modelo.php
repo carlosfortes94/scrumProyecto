@@ -24,12 +24,12 @@ class modelo {
     
     
     public function insertarHistoria($IDsprint,$ID,$nombre,$Descripcion, $ValorDeNegocio){
-        $sql = "INSERT INTO historia VALUES ('".$IDsprint."','" . $ID ."','" . $nombre ."','" . $Descripcion ."','" . $ValorDeNegocio ."');";
+        $sql = "INSERT INTO historia VALUES ('".$IDsprint."','" .$ID."','" .$nombre."','" . $Descripcion ."','" . $ValorDeNegocio ."');";
         return $this->baseDatos->query($sql);
     }
     
     public function borrarHistoria($ID){
-        $sql = "DELETE * FROM historia WHERE IDHistoria = '" . $ID . "';";
+        $sql = "DELETE  FROM historia WHERE IDHistoria = '" . $ID . "';";
         return $this->baseDatos->query($sql);
     }
     
@@ -58,19 +58,19 @@ class modelo {
     
     // ------------------------------------- TAREAS -------------------------
     
-    public function insertarTarea($nombre,$descripcion,$lista, $coste, $prioridad, $IDhistoria, $Estado){
-        $sql = "INSERT INTO tareas VALUES ('".$nombre."','" . $descripcion ."','" . $lista ."','" . $coste ."','" . $prioridad ."','" . $IDhistoria ."','" . $Estado ."');";
+    public function insertarTarea($nombre,$descripcion,$lista, $coste, $prioridad, $IDhistoria){
+        $sql = "INSERT INTO tareas VALUES ('".$nombre."','" . $descripcion ."','" . $lista ."','" . $coste ."','" . $prioridad ."','" . $IDhistoria ."','" . 1 ."');";
         return $this->baseDatos->query($sql);
     }
     
     public function borrarTarea($nombre){
-         $sql = "DELETE * FROM tarea WHERE nombre = '" . $nombre . "';";
+         $sql = "DELETE  FROM tareas WHERE IDTarea = '" . $nombre . "';";
         return $this->baseDatos->query($sql);
     }
     
    
     public function actualizarTarea($nombre,$nuevoNombre,$nuevaDescripcion,$nuevaLista, $nuevoCoste, $nuevaPrioridad, $nuevoIDhistoria, $nuevoEstado){
-        $sql = "UPDATE tareas SET Nombre = '".$nuevoNombre."',Descripcion= '".$nuevaDescripcion."' , Lista de pruebas= '".$nuevaLista."',Coste estimado='".$nuevoCoste."',Prioridad='".$nuevaPrioridad."',IDHistoria='".$nuevoIDhistoria."',Estado='".$nuevoEstado."' WHERE Nombre = '".$nombre."';";
+        $sql = "UPDATE tareas SET IDTarea = '".$nuevoNombre."',Descripcion= '".$nuevaDescripcion."' , Lista de pruebas= '".$nuevaLista."',Coste estimado='".$nuevoCoste."',Prioridad='".$nuevaPrioridad."',IDHistoria='".$nuevoIDhistoria."',Estado='".$nuevoEstado."' WHERE Nombre = '".$nombre."';";
         return $this->baseDatos->query($sql);
     }
     
@@ -86,6 +86,12 @@ class modelo {
         return $Tareas;
     }
     
+    public function modificarEstado($nombre, $estado){
+         $sql = "UPDATE tareas SET Estado='".$estado."' WHERE IDTarea = '".$nombre."';";
+        return $this->baseDatos->query($sql);
+    }
+
+
     //-------------------------------------------------------------------------
     
     
@@ -97,7 +103,7 @@ class modelo {
     }
     
     public function borrarSprint($IDsprint){
-        $sql = "DELETE * FROM Sprint WHERE ID = '" . $IDsprint . "';";
+        $sql = "DELETE FROM Sprint WHERE ID = '" . $IDsprint . "';";
         return $this->baseDatos->query($sql);
     }
     
@@ -121,6 +127,6 @@ class modelo {
     
     //------------------------------------------------------------------------
     
-    
+   
     
 }

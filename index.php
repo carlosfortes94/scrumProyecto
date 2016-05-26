@@ -23,10 +23,34 @@ if ($_SERVER["REQUEST_METHOD"] === "GET"){
     //$vista = new scrumProyecto1\vista\Vista();
     
     $modelo->conectarBD();
-    $resultado = $modelo->insertarHistoria($consulta["idsprint"],$consulta["etq"],$consulta["nom"],$consulta["des"],$consulta["val"]);
     
+     if (array_key_exists("a1",$consulta)){
+         $resultado = $modelo->insertarHistoria($consulta["etq"],$consulta["id"],$consulta["nom"],$consulta["des"],$consulta["val"]);
+         
+     } else if (array_key_exists("b1",$consulta)){
+         $resultado = $modelo->borrarHistoria($consulta["etq"]);
+         
+         
+     } else if(array_key_exists("r1",$consulta)){
+         $resultado = $modelo->leerHistorias();
+         
+     } else if(array_key_exists("a2",$consulta)){
+          $resultado = $modelo->insertarTarea($consulta['nombre'], $consulta['descripcion'], $consulta['pruebas'], $consulta['coste'], $consulta['prioridad'], $consulta['id_historia']);
+         
+     } else if(array_key_exists("b2",$consulta)){
+          $resultado = $modelo->borrarTarea($consulta['nombre']);
+         
+     } else if (array_key_exists("r2",$consulta)){
+          $resultado = $modelo->leerTareas();
+     } else if(array_key_exists("me", $consulta)){
+         $resultado = $modelo->modificarEstado($consulta['nombre'], $consulta['estado']);
+     }
+     
+     
+     
     if ($resultado){
         echo $consultaJSON;
+        
     } else {
         echo json_encode(["error" => "No se ha podido insertar la historia"]);
     }
