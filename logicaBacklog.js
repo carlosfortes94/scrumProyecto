@@ -3,14 +3,14 @@ var logicaBacklog = {
     
     intentarCargarHistoria: function(){
         
-        servidorBacklog.solicitarAccionEnBD({r:"historias"} ,logicaBacklog.cargarArray);
+        servidorBacklog.solicitarAccionEnBD({r1:"historias"} ,logicaBacklog.cargarArray);
     },
     
     cargarArray: function(historias){
         
-        if (historias.hasOwnProperty("r")){
-            for(var historia in historias.r){
-                logicaBacklog.historias.push(historias.r[historia]);
+        if (historias.hasOwnProperty("r1")){
+            for(var historia in historias.r1){
+                logicaBacklog.historias.push(historias.r1[historia]);
             }
         }
         
