@@ -1,8 +1,7 @@
 var eliminarTarea = {
-	init: function(idTarea){
-	
+	recogerID: function(idTarea){
 		console.log(idTarea);
-		return idTarea;
+		eliminarTarea.eliminar(idTarea);
 	},
 	
 	ventana: {
@@ -17,9 +16,7 @@ var eliminarTarea = {
 		}
 	},
 	
-	eliminar: function(){
-		var id_tarea = eliminarTarea.init();
-		
+	eliminar: function(id_tarea){		
 		logicaTarea.buscarIdEnBD(id_tarea, eliminarTarea.borrarTarea);
 	},
 	

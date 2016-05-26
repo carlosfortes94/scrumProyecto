@@ -143,3 +143,14 @@ div.tarea{
 		width:20px;
 		height: 20px;
 }
+
+#mostrar_detalles_tarea{
+	height: 10px;
+	float:left;
+	position: absolute;
+	margin-top: 15px;
+	margin-left: -40px;
+	border: none;
+	background-color: transparent;
+	font-size: 1.3em;
+}

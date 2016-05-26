@@ -75,7 +75,7 @@ var nuevaTarea = {
 		tareaCreate: function(tarea){
 			var div = document.createElement("div");
 
-			var tareaBox = "<ul><li class='nombre_tarea'>" + tarea.nombre + "</li><li>" + tarea.prioridad + "</li></ul><span>" + tarea.coste + "</span><input type='image' src='editar.png' id='modificar_tarea' onclick='modificarTarea.init(this.parentNode.querySelector(\".nombre_tarea\").textContent)'/><input type='image' src='eliminar.png' id='eliminar_tarea' onclick='modificarTarea.init(this.parentNode.querySelector(\".nombre_tarea\").textContent)'/>";
+			var tareaBox = "<ul><li class='nombre_tarea'>" + tarea.nombre + "</li><li>" + tarea.prioridad + "</li></ul><span>" + tarea.coste + "</span><input type='image' src='editar.png' id='modificar_tarea' onclick='modificarTarea.init(this.parentNode.getElementByTagName(\"li\")[0].textContent)'/><input type='image' src='eliminar.png' id='eliminar_tarea' onclick='eliminarTarea.init(this.parentNode.getElementByTagName(\"li\")[0].textContent)'/>";
 			
 			var id_tarea =tarea.nombre;
 

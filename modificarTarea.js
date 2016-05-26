@@ -4,19 +4,25 @@ var conexionServidor = {
  operacionBDTerminado: function(tarea){
         conexionServidor.callback(tarea);
     },
-	/*solicitarDatosBD: function(something, callback){
-			this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", something, callback);
+	
+	solicitarDatosBD: function(tarea, callback){
+			this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", tarea, callback);
 	},
-	*/
+	
 	solicitarAddTareaBD: function(tarea, callback){
-        this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", tarea, callback);
-    }, 
+    this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", tarea, callback);
+ }, 
 	
 	solicitarEliminacionBD: function(id_tarea, callback){
-		this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", {id: id_tarea, b: "borrar"}, callback);
+		this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", {id: id_tarea, b2: "borrar"}, callback);
 	},
+	
 	solicitarCambiarEstadoBD: function(estado, callback){
 		this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", estado, callback);
+	},
+	
+	solicitarCargarTareasBD: function(callback){
+		this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", {r2: "cargarTareas"}, callback);
 	},
 	realizarConsultaHTTP: function(url, tarea, callback){
         this.consultaHTTP = false;
@@ -53,3 +59,4 @@ var conexionServidor = {
         }
     }
 };
+

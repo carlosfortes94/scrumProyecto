@@ -23,12 +23,15 @@ var logicaTarea = {
 		} else {}
 	},
 
-	recogerDatosBD: function(callback){
+	recogerDatosBD: function(tarea, callback){
 		this.callback = callback;
 
-		conexionServidor.solicitarDatosBD(modificarTarea.mostrarVentanaModificacion);
+		conexionServidor.solicitarDatosBD(tarea, logicaTarea.recogerDatosBDTerminado);
 	},
-
+recogerDatosBDTerminado: function(tarea){
+	logicaTarea.callback(tarea);
+},
+	
 	buscarIdEnBD: function(id_tarea, callback){
 		this.callback = callback;
 
@@ -36,10 +39,10 @@ var logicaTarea = {
 	},
 
 
-	intentarLlamarHistorias: function(){
+	/*intentarLlamarHistorias: function(){
 		conexionServidor.callbackLlamarHistorias(logicaTarea.RecogerDatosHistoriasBD);
 		conexionServidor.solicitarHistorias({r:"historias"});
-	},
+	},*/
 
 	cargarDatosHistoriaBD: function(nombres_historias){
 		if (nombres_historias.hasOwnProperty("r")){
@@ -57,5 +60,23 @@ var logicaTarea = {
 
 	solicitarCambiarEstadoTerminado: function(estado){
 		logicaTarea.callback(estado);
+},
+	
+	solicitarCargarTareas: function(callback){
+		this.callback = callback;
+		
+		conexionServidor.solicitarCargarTareasBD(logicaTarea.solicitarCargarTareasTerminado);
+	},
+	
+	solicitarCargarTareasTerminado(tareas){
+		logicaTarea.callback(tareas);
+	},
+	
+subidaDatosArray: function(modo, id){
+	if (modo == 1){
+		logicaTarea.nombres_tarea.push(id);
+	} else if (modo == 2){
+		logicaTarea.nombres_historias(id);
+	}
 }
 };

@@ -52,7 +52,7 @@ var logicaTarea = {
 	solicitarCambiarEstado: function(estado, callback){
 		this.callback = callback;
 		
-		conexionServidor.solicitarCambiarEstadoBD(estado );
+		conexionServidor.solicitarCambiarEstadoBD(estado, logicaTarea.solicitarCambiarEstadoTerminado);
 },
 
 	solicitarCambiarEstadoTerminado: function(estado){

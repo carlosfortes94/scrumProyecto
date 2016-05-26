@@ -1,113 +1,145 @@
-          body{
-                background-color: powderblue;
-            }
-            #contenido{
-                display: flex;
-            }
-            body > h1{
-                font-family: fantasy;
-                font-size: 3em;
-            }
-            div#backlog h1 {
-                font-family: arial;
-                text-align: center;
-            }
-            #backlog{
-                box-shadow: 1px 1px 10px black;
-                background-color: skyblue;
-                width: 18%;
-                display:inline-block;
-                border:2px solid #ac2925; 
-            }
-            div > div{
-                display: inline-block;
-            }
-            #kanban{
-                border:2px solid #ac2925;
-                margin-left: 10px;
-                box-shadow: 1px 1px 10px black;
-                background-color: skyblue;
-                display: inline-block;
-                width: 80%;
-            }
-            #kanban > div{
-                margin:5px;
-                width: 23%;
-                border: 2px solid darkcyan;
-            }
-            #kanban > div > h1{
-                font-family: arial;
-                text-align: center;
-            }
-            button{
-                margin-top: 10px;
-                float:right;
-            }
-            #ventanaTarea{
-                display: none;
-            }
-            div[id^="historia"]{
-                border: 1px solid black;
-                background-color: thistle; 
-                margin-left:0.7em;
-                margin-bottom: 0.7em;
-                width:90%;
-            }
-            button#nueva_tarea{
-                margin: 3px;
-            }
-            
-            .ventana{
-                position: absolute;
-                width:40%;
-                top:150px;
-                left:350px;
-                font-family: Verdana, Arial, Helvetica, sans-serif;
-                font-size: 12px;
-                font-weight: normal;
-                border: 3px solid #333333;
-                background-color: #FAFAFA;
-                color:#000000;
-                display:none;
-                overflow: auto;
-                z-index: 1002;
-            }
-            .ventana h1{
-                text-align: center;
-                font-size: 2.5em;
-            }
-            .ventana button{
-                margin:3px;
-            }
-            .ventana ul{
-                list-style: none;
-            }
-            .ventana ul li {
-                font-size: 14px;
-                margin: 3px;
-            }
-            textarea{
-                width:59%;
-                height: 50px;
-            }
-            #coste_estimado{
-                width:20%;
-                margin-left: 25px;
-            }
-            #prioridad{
-                width:20%;
-                margin-left: 5px;
-            }
-            .fadebox{
-                display: none;
-                position: absolute;
-                top:0;
-                left:0;
-                width:100%;
-                height:100%;
-                background-color: black;
-                z-index: 1001;
-                -moz-opacity:0.3;
-                opacity: .3;
-               
-            }
+body{
+		background-color: powderblue;
+}
+#contenido{
+		display: flex;
+}
+body > h1{
+		font-family: fantasy;
+		font-size: 3em;
+}
+div#backlog h1 {
+		font-family: arial;
+		text-align: center;
+}
+#backlog{
+		box-shadow: 1px 1px 10px black;
+		background-color: skyblue;
+		width: 18%;
+		display:inline-block;
+		border:2px solid #ac2925; 
+}
+div > div{
+		display: inline-block;
+}
+#kanban{
+		border:2px solid #ac2925;
+		margin-left: 10px;
+		box-shadow: 1px 1px 10px black;
+		background-color: skyblue;
+		display: inline-block;
+		width: 80%;
+}
+#kanban > div{
+		margin: 5px;
+		width: 23%;
+		border: 2px solid darkcyan;
+		display: inline-block;
+}
+#kanban > div > h1{
+		display: flex;
+		width: 100%;
+		font-family: arial;
+		text-align: center;
+}
+button{
+		margin-top: 10px;
+		float:right;
+}
+#ventanaTarea{
+		display: none;
+}
+div[id^="historia"]{
+		border: 1px solid black;
+		background-color: thistle; 
+		margin-left:0.7em;
+		margin-bottom: 0.7em;
+		width:90%;
+		box-shadow: 1px 1px 10px dimgray;
+
+}
+
+button#nueva_tarea{
+		margin: 3px;
+}
+
+.ventana{
+		position: absolute;
+		width:40%;
+		top:150px;
+		left:350px;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		font-weight: normal;
+		border: 3px solid #333333;
+		background-color: #FAFAFA;
+		color:#000000;
+		display:none;
+		overflow: auto;
+		z-index: 1002;
+}
+.ventana h1{
+		text-align: center;
+		font-size: 2.5em;
+}
+.ventana button{
+		margin:3px;
+}
+.ventana ul{
+		list-style: none;
+}
+.ventana ul li {
+		font-size: 14px;
+		margin: 3px;
+}
+textarea{
+		width:59%;
+		height: 50px;
+}
+#coste_estimado{
+		width:20%;
+		margin-left: 25px;
+}
+#prioridad{
+		width:20%;
+		margin-left: 5px;
+}
+.fadebox{
+		display: none;
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background-color: black;
+		z-index: 1001;
+		-moz-opacity:0.3;
+		opacity: .3;
+}
+ul {
+		list-style: none;
+}
+ul li, span {
+		font-family: ubuntu;
+		font-size: 20px;
+}
+div.tarea{
+	width:90%;
+		margin:10px;
+		border:1px solid pink;
+		background-color: antiquewhite;
+}
+#eliminar_tarea{
+		position: relative; 
+		margin-left:150px;
+		float:right;
+		width:20px;
+		height: 20px;
+}
+#modificar_tarea{
+		position: sticky;
+		margin-left:100px;
+		float:right;
+		width:20px;
+		height: 20px;
+}
