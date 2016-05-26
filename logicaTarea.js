@@ -35,10 +35,12 @@ recogerDatosBDTerminado: function(tarea){
 	buscarIdEnBD: function(id_tarea, callback){
 		this.callback = callback;
 
-		conexionServidor.solicitarEliminacionBD(id_tarea, eliminarTarea.borrarTarea);
+		conexionServidor.solicitarEliminacionBD(id_tarea, logicaTarea.buscarIdEnBDTerminado);
 	},
 
-
+buscarIdEnBDTerminado: function(tarea){
+	logicaTarea.callback(tarea);
+},
 	/*intentarLlamarHistorias: function(){
 		conexionServidor.callbackLlamarHistorias(logicaTarea.RecogerDatosHistoriasBD);
 		conexionServidor.solicitarHistorias({r:"historias"});
@@ -68,7 +70,7 @@ recogerDatosBDTerminado: function(tarea){
 		conexionServidor.solicitarCargarTareasBD(logicaTarea.solicitarCargarTareasTerminado);
 	},
 	
-	solicitarCargarTareasTerminado(tareas){
+	solicitarCargarTareasTerminado: function(tareas){
 		logicaTarea.callback(tareas);
 	},
 	
