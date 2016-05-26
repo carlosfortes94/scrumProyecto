@@ -6,11 +6,6 @@
 				<link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
 		</head>
 		<body>
-				<!--<div class="ventana" id="eliminarTarea">
-						<p>¿Realmente desea eliminar esta tarea?</p>
-						<button id="no_eliminar">Cancelar</button>
-						<button id="si_eliminar">Sí</button>
-				</div>-->
 				<div class="ventana" id="ventanaTarea">
 						<h1 id="titulo_tarea"></h1>
 						<ul>
@@ -21,7 +16,7 @@
 								<li><label for="prioridad">Prioridad</label><input type="number" id="prioridad"/></li>    
 						</ul>
 						<button id="cancelar">Cancelar</button>
-						<button id="enviar" onClick="nuevaTarea.insertarNuevaTarea.init(this.parentNode.style.backgroundColor)">Enviar</button>
+						<button id="enviar">Enviar</button>
 				</div>
 
 				<div class="fadebox" id="fadebox"></div>
@@ -37,7 +32,7 @@
 												<li>hola caracola</li>
 										</ul>  
 										<span class="coste">100</span>
-										<button id='nueva_tarea'>Nueva tarea</button>
+										<button id='nueva_tarea' onclick="nuevaTarea.recogerID(this.parentNode.getElementsByTagName('li')[0].textContent)">Nueva tarea</button>
 								</div>
 						</div>
 						<div id="kanban">

@@ -1,5 +1,5 @@
 var botones = {
-	init: function(idTarea){
+	init: function(){
 		var btn_nueva_tarea = document.getElementById("nueva_tarea");
 		btn_nueva_tarea.addEventListener("click", function(){
 			nuevaTarea.ventana.mostrar();

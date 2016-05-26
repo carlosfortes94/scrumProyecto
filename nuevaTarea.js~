@@ -64,7 +64,7 @@ var nuevaTarea = {
 
 			if (errores === ""){
 				//Llamada a la clase que lo crea, preparar paso 5
-				logicaTarea.callbackNuevaTarea({nombre: tarea.nombre, descripcion: tarea.descripcion, pruebas: tarea.pruebas, coste: tarea.coste, prioridad: tarea.prioridad, id_historia: tarea.id_historia, color: tarea.color}, nuevaTarea.creacionDivTarea.tareaCreate);		
+				logicaTarea.callbackNuevaTarea({nombre: tarea.nombre, descripcion: tarea.descripcion, pruebas: tarea.pruebas, coste: tarea.coste, prioridad: tarea.prioridad, id_historia: tarea.id_historia, color: tarea.color, a2: añadir}, nuevaTarea.creacionDivTarea.tareaCreate);		
 			} else {
 				alert("Los campos de " + errores + " no son correctos.");
 			}
@@ -75,7 +75,7 @@ var nuevaTarea = {
 		tareaCreate: function(tarea){
 			var div = document.createElement("div");
 
-			var tareaBox = "<ul><li class='nombre_tarea'>" + tarea.nombre + "</li><li>" + tarea.prioridad + "</li></ul><span>" + tarea.coste + "</span><input type='image' src='editar.png' id='modificar_tarea' onclick='modificarTarea.init(this.parentNode.getElementByTagName(\"li\")[0].textContent)'/><input type='image' src='eliminar.png' id='eliminar_tarea' onclick='eliminarTarea.init(this.parentNode.getElementByTagName(\"li\")[0].textContent)'/>";
+			var tareaBox = "<ul><li class='nombre_tarea'>" + tarea.nombre + "</li><li>" + tarea.prioridad + "</li></ul><span>" + tarea.coste + "</span><input type='image' src='editar.png' id='modificar_tarea' onclick='modificarTarea.init(this.parentNode.getElementsByTagName(\"li\")[0].textContent)'/><input type='image' src='eliminar.png' id='eliminar_tarea' onclick='eliminarTarea.init(this.parentNode.getElementsByTagName(\"li\")[0].textContent)'/>";
 			
 			var id_tarea =tarea.nombre;
 

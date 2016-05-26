@@ -1,4 +1,5 @@
 var nuevaTarea = {
+	id: "",
 	ventana : {
 		mostrar: function(){
 			document.getElementById("ventanaTarea").style.display = 'block';
@@ -24,10 +25,14 @@ var nuevaTarea = {
 		}
 	},
 
+	recogerID: function(id){
+		this.id = id;
+		console.log(id);
+	},
+	
 	insertarNuevaTarea: {
-		init: function(colorDiv){
+		init: function(){
 			var datosTarea = nuevaTarea.insertarNuevaTarea.getDatosTarea();
-			datosTarea.color = colorDiv;
 			nuevaTarea.insertarNuevaTarea.validacionTarea(datosTarea);
 		},
 
@@ -39,7 +44,8 @@ var nuevaTarea = {
 			tarea.pruebas = document.getElementById("lista_pruebas").value;
 			tarea.coste = document.getElementById("coste_estimado").value;
 			tarea.prioridad = document.getElementById("prioridad").value;
-
+			
+			console.log(tarea);
 			return tarea;
 		},
 
@@ -64,7 +70,7 @@ var nuevaTarea = {
 
 			if (errores === ""){
 				//Llamada a la clase que lo crea, preparar paso 5
-				logicaTarea.callbackNuevaTarea({nombre: tarea.nombre, descripcion: tarea.descripcion, pruebas: tarea.pruebas, coste: tarea.coste, prioridad: tarea.prioridad, id_historia: tarea.id_historia, color: tarea.color, a2: añadir}, nuevaTarea.creacionDivTarea.tareaCreate);		
+				logicaTarea.callbackNuevaTarea({nombre: tarea.nombre, descripcion: tarea.descripcion, pruebas: tarea.pruebas, coste: tarea.coste, prioridad: tarea.prioridad, id_historia: tarea.id_historia, color: tarea.color, a2: 'añadir'}, nuevaTarea.creacionDivTarea.tareaCreate);		
 			} else {
 				alert("Los campos de " + errores + " no son correctos.");
 			}
@@ -88,6 +94,7 @@ var nuevaTarea = {
 			var por_hacer = document.getElementById("por_hacer");
 			por_hacer.appendChild(div);
 
+			nuevaTarea.ventana.ocultar();
 		}
 	}
 };
