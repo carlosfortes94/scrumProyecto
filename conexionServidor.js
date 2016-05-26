@@ -12,10 +12,12 @@ var conexionServidor = {
         this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", tarea, callback);
     }, 
 	
-	solicitarEliminacionBD(id_tarea, callback){
+	solicitarEliminacionBD: function(id_tarea, callback){
 		this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", {id: id_tarea, b: "borrar"}, callback);
 	},
-
+	solicitarCambiarEstadoBD: function(estado, callback){
+		this.realizarConsultaHTTP("http://localhost/scrumProyecto/index.php", estado, callback);
+	},
 	realizarConsultaHTTP: function(url, tarea, callback){
         this.consultaHTTP = false;
         this.callback = callback;

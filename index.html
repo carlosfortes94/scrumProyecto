@@ -3,7 +3,7 @@
 		<head>
 				<title>Sprint</title>
 				<meta charset="utf-8"/>
-				<link rel="stylesheet" type="text/css" href="estilo.css"/>
+				<link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
 		</head>
 		<body>
 				<div class="ventana" id="eliminarTarea">
@@ -48,8 +48,8 @@
 														<li>Prioridad</li>
 												</ul>
 												<span>Coste</span> 
-												<input type='image' src='editar.png' id='modificar_tarea' onclick='modificarTarea.init(this.parentNode.querySelector(".nombre_tarea").textContent)'/>
-												<input type='image' src='eliminar.png' id='eliminar_tarea' onclick='eliminarTarea.init(this.parentNode.querySelector(".nombre_tarea").textContent)'/>
+												<input type='image' src='editar.png' id='modificar_tarea' onclick='modificarTarea.init(this.parentNode.getElementByTagName(\"li\")[0].textContent)'/>
+												<input type='image' src='eliminar.png' id='eliminar_tarea' onclick='eliminarTarea.init(this.parentNode.getElementByTagName(\"li\")[0].textContent)'/>
 										</div>
 								</div>
 								<div class="dropzone" id="en_proceso"><h1>En proceso</h1></div>

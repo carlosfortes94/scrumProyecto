@@ -49,7 +49,13 @@ var logicaTarea = {
 		}
 	},
 	
-	solicitarCambiarEstado: function(modo){
-	
+	solicitarCambiarEstado: function(estado, callback){
+		this.callback = callback;
+		
+		conexionServidor.solicitarCambiarEstadoBD(estado );
+},
+
+	solicitarCambiarEstadoTerminado: function(estado){
+		logicaTarea.callback(estado);
 }
 };
